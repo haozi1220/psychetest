@@ -1,0 +1,34 @@
+<view class="container">
+  <view class='result_page'>
+    <view class='top_img'>
+      <image src='../../images/1.jpg'></image>
+    </view>
+    <view class='useerInfo'>
+      <i-avatar size="small">梁</i-avatar><text class='userName'>梁</text>
+    </view>
+    <view class='result_content'>
+      <view class='result_wrapp'>
+        <text>测试结果：</text><text>C.30-39岁</text>
+      </view>
+      <view class='content_wrap'>
+        你还算是个充满活力的现代人，虽然偶尔会遗失点东西，夸夸海口，但都无伤大雅。你心智成熟，合情合理地处理矛盾、平和地看待美丑得失，对你来说都不算难事。比起青少年时代的注重外界，现在的你更倾向于内，会产生更深入的了解自己内心的想法。对人或事的看法也逐渐成熟，认为对错好坏没有明显的界限。
+      </view>
+      <view class='tips_text'>
+        <text>Tipes：</text><text>小心保守与停滞的泥潭!</text>
+      </view>
+    </view>
+    <view class='btn_wrapp'>
+      <view class='lang_text' bindtap='showResultImag'><i-icon type="task_fill" size="20" color='#ff9900' inline='true' i-class="saveIcon"/>保存结果图</view>
+      <text class='short_text'>|</text>
+      <button open-type='share'><i-icon type="share" size="20" color="#ff9900" inline='true' i-class="saveIcon"/>分享给好友</button>
+    </view>
+  </view>
+  <view class='shadowTast' hidden="{{isShadow}}"></view>
+   <view class='saveImageWrap' hidden="{{isShadow}}">
+    <canvas canvas-id='shareImage' style='width:295px;height: 500px;'></canvas>
+    <view class='saveImageBtn'>
+      <button bindtap='saveImage'>点击保存结果图</button>
+    </view>
+    <view class='closeWrap' bindtap='closeShadow'><i-icon type="close" size='28' color='#fff'/></view>
+  </view>
+</view>

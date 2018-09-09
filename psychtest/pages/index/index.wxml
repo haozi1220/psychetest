@@ -1,0 +1,21 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='index_page'>
+    <view class='title'>心理年龄测试</view>
+    <view class='test_totle'>
+      <i-icon class='icon_text' type="brush" size="18" color="#80848f"/>
+      <text>45w人测试过</text>
+    </view>
+    <image src='../../images/0.jpg'></image>
+    <view class='intro_metate'>
+      心理年龄不同于生理年龄，它收到社会、家庭、教育、心理素质等各方面因素的影响。
+    </view>
+    <view class='btn_wrap'>
+      <i-button type="warning" inline='true' bind:click="startTest">开始测试</i-button>
+      <i-button open-type='share'>
+        <i-icon type="share" size="18" color="#80848f" inline='true'/>
+        分享给好友
+      </i-button>
+    </view>
+  </view>
+</view>

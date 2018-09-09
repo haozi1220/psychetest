@@ -1,0 +1,140 @@
+.container {
+  padding: 40rpx 35rpx 0;
+}
+.result_page {
+  width: 100%;
+  border-radius: 10rpx;
+  text-align: center;
+  background: #fff;
+  box-shadow: 0 10rpx 20rpx #e3e3e3;
+  overflow: hidden;
+}
+.top_img {
+    font-size: 0;
+}
+.top_img image {
+  width: 100%;
+  height: 300rpx;
+}
+.useerInfo {
+  padding: 20rpx 40rpx;
+  font-size: 0;
+  text-align: left;
+}
+.useerInfo .userName {
+  font-size: 20px;
+  line-height: 1;
+  vertical-align: middle;
+  padding-left: 20rpx;
+  color: #a09999;
+}
+.result_content {
+  padding: 0 40rpx;
+  text-align: left;
+  border-bottom: 1px solid #e9eaec;
+}
+.result_content .result_wrapp {
+  font-size: 40rpx;
+  color: #333;
+  font-weight: bold;
+  padding-bottom: 20rpx;
+}
+.result_content .content_wrap {
+  padding-bottom: 50rpx;
+  font-size: 30rpx;
+  line-height: 1.6;
+  color: #cac8c8;
+}
+.result_content .tips_text {
+  padding: 0 0 50rpx;
+  font-size: 30rpx;
+  line-height: 1.6;
+  color: #cac8c8;
+}
+.btn_wrapp {
+  padding: 20rpx 0;
+}
+.btn_wrapp .lang_text {
+  display: inline-block;
+  padding: 20rpx 0 30rpx;
+  width: 40%;
+  text-align: center;
+  font-size: 30rpx;
+  color: #a09999;
+  vertical-align: bottom;
+}
+.btn_wrapp .short_text{
+  display: inline-block;
+  width: 15%;
+  padding: 20rpx 0 30rpx;
+  color: #e9eaec;
+}
+.btn_wrapp button {
+  display: inline-block;
+  vertical-align: bottom;
+  background: none;
+  width: 40%;
+  font-size: 30rpx;
+  height: 100%;
+  padding: 20rpx 0 30rpx;
+  line-height: 0;
+  color: #a09999;
+}
+.btn_wrapp button::after {
+  border: none;
+}
+.btn_wrapp .saveIcon {
+  vertical-align: middle;
+  margin-right: 10rpx;
+}
+/* 遮罩层 */
+.shadowTast {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgb(7, 0, 0);
+  opacity: .7;
+}
+.saveImageWrap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  padding: 70rpx 80rpx;
+}
+.saveImageWrap .result_page {
+  position: relative;
+  padding-bottom: 100rpx;
+  box-shadow: none;
+  font-size: 0;
+}
+.saveImageWrap .result_page .warning_text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30rpx 0;
+  text-align: center;
+  font-size: 30rpx;
+  font-weight: bold;
+  background: #ff9900;
+}
+.saveImageBtn {
+  margin-top: 50rpx;
+}
+.saveImageBtn button {
+  background: none;
+  border: 1px solid #fff;
+  color: #fff;
+}
+.saveImageWrap .closeWrap {
+  position: absolute;
+  top: 30rpx;
+  right: 40rpx;
+  border: 1px solid #fff;
+  border-radius: 50%;
+}
