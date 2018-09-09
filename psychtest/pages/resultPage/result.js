@@ -5,6 +5,7 @@ Page({
    */
   data: {
     isShadow: true, //标记遮罩层
+    imgPath:'', //生成图片的地址
     resultCont: '你还算是个充满活力的现代人，虽然偶尔会遗失点东西，夸夸海口，但都无伤大雅。你心智成熟，合情合理地处理矛盾、平和地看待美丑得失，对你来说都不算难事。比起青少年时代的注重外界，现在的你更倾向于内，会产生更深入的了解自己内心的想法。对人或事的看法也逐渐成熟，认为对错好坏没有明显的界限。'
   },
 
@@ -37,21 +38,19 @@ Page({
   },
   //  报存结果图
   saveImage(){
-    // wx.canvasToTempFilePath({
-    //   canvasId: 'shareImage',
-    //   x: 0,
-    //   y: 0,
-    //   width: 295,
-    //   height: 500,
-    //   destWidth: 295,
-    //   destHeight: 500,
-    //   success: function(res){
-    //     console.log(res);
-    //   }
-    // }, this)
+    let that = this;
+    wx.saveImageToPhotosAlbum({
+      filePath: that.data.imgPath,
+      success(res) {
+      },
+      fail(res){
+        console.log(res);
+      }
+  })
   },
   // 生成图片函数
   createImg(){
+    let that = this;
     // 顶部图片资源
     let topImgSource = '../../images/1.jpg';
     let usrAvatarSource = '../../images/avatar.png';
@@ -120,7 +119,20 @@ Page({
     ctx.setTextAlign('left');
     ctx.font = 'normal bold 16px STKaiti';
     ctx.fillText('感谢您的使用！', 91, 480);
-    ctx.draw(true);
+    ctx.draw(true,setTimeout(function(){
+      wx.canvasToTempFilePath({
+        canvasId: 'shareImage',
+        x: 0,
+        y: 0,
+        width: 295,
+        height: 500,
+        destWidth: 295,
+        destHeight: 500,
+        success: function(res){
+          that.data.imgPath = res.tempFilePath;
+        }
+      }, this)
+    },100));
   },
   // 关闭遮罩层
   closeShadow(){
