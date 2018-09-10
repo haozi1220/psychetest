@@ -138,3 +138,9 @@
   border: 1px solid #fff;
   border-radius: 50%;
 }
+/* 画布的位置 */
+canvas {
+  position: fixed;
+  top: 0;
+  left: 9999px;
+}

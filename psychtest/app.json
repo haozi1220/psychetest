@@ -1,8 +1,9 @@
 {
   "pages":[
+    "pages/resultPage/result",
     "pages/index/index",
-    "pages/testPage/test",
-    "pages/resultPage/result"
+    "pages/testPage/test"
+    
   ],
   "window":{
     "backgroundTextStyle":"light",

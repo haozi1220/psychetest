@@ -13,7 +13,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.createImg();
   },
 
   /**
@@ -31,10 +31,22 @@ Page({
   },
   // 保存结果图
   showResultImag(){
-    this.setData({
-      isShadow: false
-    });
-    this.createImg();
+    let that = this;
+    wx.canvasToTempFilePath({
+      canvasId: 'shareImage',
+      x: 0,
+      y: 0,
+      width: 295,
+      height: 500,
+      destWidth: 295,
+      destHeight: 500,
+      success: function (res) {
+        that.setData({
+          imgPath: res.tempFilePath,
+          isShadow: false
+        })
+      }
+    }, this)
   },
   //  报存结果图
   saveImage(){
@@ -42,11 +54,8 @@ Page({
     wx.saveImageToPhotosAlbum({
       filePath: that.data.imgPath,
       success(res) {
-      },
-      fail(res){
-        console.log(res);
       }
-  })
+    })
   },
   // 生成图片函数
   createImg(){
@@ -119,20 +128,7 @@ Page({
     ctx.setTextAlign('left');
     ctx.font = 'normal bold 16px STKaiti';
     ctx.fillText('感谢您的使用！', 91, 480);
-    ctx.draw(true,setTimeout(function(){
-      wx.canvasToTempFilePath({
-        canvasId: 'shareImage',
-        x: 0,
-        y: 0,
-        width: 295,
-        height: 500,
-        destWidth: 295,
-        destHeight: 500,
-        success: function(res){
-          that.data.imgPath = res.tempFilePath;
-        }
-      }, this)
-    },100));
+    ctx.draw(true);
   },
   // 关闭遮罩层
   closeShadow(){

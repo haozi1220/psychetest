@@ -23,9 +23,12 @@
       <button open-type='share'><i-icon type="share" size="20" color="#ff9900" inline='true' i-class="saveIcon"/>分享给好友</button>
     </view>
   </view>
+  <canvas canvas-id='shareImage' style='width:295px;height: 500px;' ></canvas>
   <view class='shadowTast' hidden="{{isShadow}}"></view>
-   <view class='saveImageWrap' hidden="{{isShadow}}">
-    <canvas canvas-id='shareImage' style='width:295px;height: 500px;'></canvas>
+  <view class='saveImageWrap' hidden="{{isShadow}}">
+    <view class='previewImg'>
+      <image src='{{imgPath}}' mode='widthFix' style='width:100%;'></image>
+    </view>
     <view class='saveImageBtn'>
       <button bindtap='saveImage'>点击保存结果图</button>
     </view>
