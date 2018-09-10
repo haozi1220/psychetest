@@ -2,5 +2,6 @@
   "usingComponents": {
     "i-avatar": "../../dist/avatar/index",
     "i-icon": "../../dist/icon/index"
-  }
+  },
+  "navigationBarTitleText": "测试结果"
 }

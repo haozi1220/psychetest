@@ -50,6 +50,14 @@ Page({
   handleSubmitClick(){
     this.setData({
       isLoading: true
+    });
+    wx.redirectTo({
+      url: '../resultPage/result',
+      complete:function(){
+        this.setData({
+          isLoading: false
+        })
+      }
     })
   },
   // 禁止用户滑动

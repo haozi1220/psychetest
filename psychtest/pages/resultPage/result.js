@@ -63,7 +63,7 @@ Page({
     // 顶部图片资源
     let topImgSource = '../../images/1.jpg';
     let usrAvatarSource = '../../images/avatar.png';
-    let text = '你还算是个充满活力的现代人，虽然偶尔会遗失点东西，夸夸海口，但都无伤大雅。你心智成熟，合情合理地处理矛盾、平和地看待美丑得失，对你来说都不算难事。'
+    let text = that.data.resultCont;
     let textArr = text.split(''); //把字符串切割成数组
     let textTemp = '';
     let rowArr = [];

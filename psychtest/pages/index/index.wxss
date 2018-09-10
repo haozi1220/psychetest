@@ -1,38 +1,24 @@
 /**index.wxss**/
-.container {
-  padding: 60rpx 35rpx 0;
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.index_page {
-  padding: 20rpx 0;
-  border-radius: 10rpx;
-  text-align: center;
-  background: #fff;
-  box-shadow: 0 10rpx 20rpx #e3e3e3;
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
 }
-.title {
-  font-size: 38rpx;
-  font-weight: bold;
-  color: #333;
+
+.userinfo-nickname {
+  color: #aaa;
 }
-.test_totle {
-  margin: 20rpx 0;
-  font-size: 26rpx;
-  color: #666;
-  vertical-align: middle;
+
+.usermotto {
+  margin-top: 200px;
 }
-.test_totle text {
-  padding-left: 10rpx;
-  vertical-align: middle;
-}
-image {
-  margin: 0 auto 40rpx;
-}
-.intro_metate {
-  padding: 0 30rpx;
-  font-size: 30rpx;
-  line-height: 50rpx;
-  color: #b1aeae;
-}
-.btn_wrap i-button {
-  vertical-align: middle;
+.goPyschet {
+  margin-top: 60rpx;
 }

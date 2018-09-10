@@ -1,14 +1,15 @@
 {
   "pages":[
-    "pages/resultPage/result",
     "pages/index/index",
-    "pages/testPage/test"
-    
+    "pages/logs/logs",
+    "pages/home/home",
+    "pages/testPage/test",
+    "pages/resultPage/result"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "壹心理",
     "navigationBarTextStyle":"black"
   }
 }
