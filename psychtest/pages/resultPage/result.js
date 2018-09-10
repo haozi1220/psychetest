@@ -1,3 +1,5 @@
+const app = getApp()
+
 Page({
 
   /**
@@ -6,6 +8,8 @@ Page({
   data: {
     isShadow: true, //标记遮罩层
     imgPath:'', //生成图片的地址
+    avatarUrl:'', //头像地址
+    userNickName:'', //用户姓名
     resultCont: '你还算是个充满活力的现代人，虽然偶尔会遗失点东西，夸夸海口，但都无伤大雅。你心智成熟，合情合理地处理矛盾、平和地看待美丑得失，对你来说都不算难事。比起青少年时代的注重外界，现在的你更倾向于内，会产生更深入的了解自己内心的想法。对人或事的看法也逐渐成熟，认为对错好坏没有明显的界限。'
   },
 
@@ -13,7 +17,36 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.createImg();
+    let that = this;
+    if (app.globalData.userInfo) {
+      this.setData({
+        avatarUrl: app.globalData.userInfo.avatarUrl,
+        userNickName: app.globalData.userInfo.nickName
+      })
+      that.createImg(that.data.avatarUrl, that.data.userNickName);
+    } else if (this.data.canIUse) {
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          avatarUrl: res.userInfo.avatarUrl,
+          userNickName: res.userInfo.nickName
+        })
+        that.createImg(that.data.avatarUrl, that.data.userNickName);
+      }
+    } else {
+      // 在没有 open-type=getUserInfo 版本的兼容处理
+      wx.getUserInfo({
+        success: res => {
+          app.globalData.userInfo = res.userInfo
+          this.setData({
+            avatarUrl: res.userInfo.avatarUrl,
+            userNickName: res.userInfo.nickName
+          })
+          that.createImg(that.data.avatarUrl, that.data.userNickName);
+        }
+      })
+    }
   },
 
   /**
@@ -58,11 +91,12 @@ Page({
     })
   },
   // 生成图片函数
-  createImg(){
+  createImg(avatarUrl,userNickName){
     let that = this;
     // 顶部图片资源
     let topImgSource = '../../images/1.jpg';
-    let usrAvatarSource = '../../images/avatar.png';
+    let usrAvatarSource = avatarUrl ? avatarUrl :'../../images/avatar.png';
+    let userNick = userNickName ? userNickName : '你好'
     let text = that.data.resultCont;
     let textArr = text.split(''); //把字符串切割成数组
     let textTemp = '';
@@ -79,17 +113,13 @@ Page({
     ctx.drawImage(topImgSource, 0, 0, 295, 150);
     ctx.draw(true);
     // 描绘头像背景
-    ctx.save();
-    ctx.beginPath();
-    ctx.arc(20, 175, 10, 0, 10);
-    ctx.setFillStyle('gray');
-    ctx.fill();
+    ctx.drawImage(usrAvatarSource, 0, 155, 50, 50);
     ctx.draw(true);
     // 绘制姓名
     ctx.setFillStyle('#a09999');
     ctx.setTextAlign('center');
     ctx.setFontSize(20);
-    ctx.fillText('梁', 45, 183);
+    ctx.fillText(userNick, 55, 183);
     ctx.draw(true);
     // 绘制结果内容
     ctx.setFillStyle('#333');

@@ -48,13 +48,14 @@ Page({
   },
   // 提交
   handleSubmitClick(){
+    let that = this;
     this.setData({
       isLoading: true
     });
     wx.redirectTo({
       url: '../resultPage/result',
       complete:function(){
-        this.setData({
+        that.setData({
           isLoading: false
         })
       }

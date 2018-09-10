@@ -4,7 +4,7 @@
       <image src='../../images/1.jpg'></image>
     </view>
     <view class='useerInfo'>
-      <i-avatar size="small">梁</i-avatar><text class='userName'>梁</text>
+      <i-avatar size="small" src="{{avatarUrl}}">梁</i-avatar><text class='userName'>{{userNickName}}</text>
     </view>
     <view class='result_content'>
       <view class='result_wrapp'>
