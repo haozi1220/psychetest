@@ -12,7 +12,8 @@ Page({
     checkNum:'', // 当前单选的值
     dataLen: 0,  // 请求数据的长度
     isDisabled: true, //标记提交按钮是否可点
-    isLoading: false //提交按钮的加载动画
+    isLoading: false, //提交按钮的加载动画
+    isCheckedValue: true //记录选择题为空值时，下一题不得点击
   },
   bindcChange : function(event){
     this.setData({
@@ -25,6 +26,11 @@ Page({
     var that = this;
     var currentNumber = that.data.current +1;
     var len = that.data.dataLen;
+    if(e.detail.value != ''){
+      this.setData({
+        isCheckedValue: false
+      })
+    }
     if (currentNumber < len+1){
       this.setData({
         current: currentNumber
@@ -41,6 +47,17 @@ Page({
     var currentNumber = that.data.current -1;
     var len = that.data.dataLen;
     if (currentNumber >= 0) {
+      this.setData({
+        current: currentNumber
+      })
+    }
+  },
+  // 点击下一题
+  handleNextClick(){
+    var that = this;
+    var currentNumber = that.data.current + 1;
+    var len = that.data.dataLen;
+    if (currentNumber <= len) {
       this.setData({
         current: currentNumber
       })

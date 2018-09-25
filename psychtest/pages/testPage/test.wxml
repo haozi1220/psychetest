@@ -16,7 +16,7 @@
             </label>
           </radio-group>
           <view class='btn_wrap'>
-            <view class='single_btn' wx:if="{{indexNum != 0 && indexNum != dataLen}}"><i-button bind:click="handlePrevClick" type="warning">上一题</i-button></view>
+            <view class='single_btn'><i-button bind:click="handlePrevClick" type="warning" wx:if="{{indexNum != 0 && indexNum != dataLen}}">上一题</i-button><i-button bind:click="handleNextClick" disabled='{{isCheckedValue}}' type="warning">下一题</i-button></view>
             <view class='btn_group' wx:if="{{indexNum == dataLen}}"><i-button i-class='btn_double' bind:click="handlePrevClick" type="warning">上一题</i-button><i-button i-class='btn_double' bind:click="handleSubmitClick" type="warning" disabled="{{isDisabled}}" loading="{{isLoading}}">提交</i-button></view>
           </view>
         </view>
